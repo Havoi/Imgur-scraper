@@ -23,13 +23,15 @@ def hello_world(gallery_id):
     data = data.replace('window.postDataJSON=' , '')
     data = data[1:-1]
     data = data.replace('\n' , '')
-
-    data = json.loads(data)
+    try:
+        data = json.loads(data)
+    except:
+        print('there was an error so just returniing string non formatted json')
     return jsonify(data)
     
 
 
 if __name__ == '__main__':
-   app.run(host="192.168.1.6",port=8800, debug=  True)
+   app.run(host="localhost",port=8800, debug=  True)
 
 
