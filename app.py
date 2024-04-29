@@ -1,13 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
-from flask import Flask, jsonify
+from flask import Flask, jsonify , render_template
 
 import json
 
 app = Flask(__name__)
 @app.route("/")
 def index():
-    return "this is a simple imgur api with web scraping . \n You can use this by passing gallery id in the url of this website \n. for example : https://imgur-api-scraper.herokuapp.com/{gallery_id}"
+    return render_template('index.html')
+    # return "this is a simple imgur api with web scraping . \n You can use this by passing gallery id in the url of this website \n. for example : https://imgur-api-scraper.herokuapp.com/{gallery_id}"
 @app.route("/<gallery_id>")
 def hello_world(gallery_id):
     
